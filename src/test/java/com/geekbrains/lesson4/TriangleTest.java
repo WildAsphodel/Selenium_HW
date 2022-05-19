@@ -31,7 +31,7 @@ public class TriangleTest {
 
     @Test
     void givenNumbersWhenCallAreaOfATriangleThenCalculateArea () throws TriangleDoesNotExistException {
-        Double area = TriangleFunction.AreaOfATriangle(3, 5,4);
+        Double area = TriangleFunction.AreaOfATriangle(3, 5, 4);
         Assertions.assertEquals(area, 6);
     }
 
