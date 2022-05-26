@@ -1,5 +1,6 @@
 package com.geekbrains.lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +16,7 @@ public class ImagesPage extends BaseView {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement submitButton;
 
-//    @Step ("Вводим текст запроса") Idea не находит такой аннотации @Step
+   @Step("Вводим текст запроса")
     public ImagesSearchResultPage search(String text) {
         searchInput.sendKeys(text);
         submitButton.click();

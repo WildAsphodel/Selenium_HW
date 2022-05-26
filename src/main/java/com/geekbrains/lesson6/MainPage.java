@@ -1,5 +1,6 @@
 package com.geekbrains.lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,7 @@ public class MainPage extends BaseView {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement submitButtonMain;
 
+    @Step("Переход на сервис Картинки")
     public ImagesPage openImagesPage() {
         imagesIcon.click();
         List<String> tabs = new ArrayList<>(driver.getWindowHandles());
@@ -29,6 +31,7 @@ public class MainPage extends BaseView {
         return new ImagesPage(driver);
     }
 
+    @Step("Вводим текст для поиска на главной странице")
     public void searchCats(String text) {
         searchInputMain.sendKeys(text);
         submitButtonMain.click();

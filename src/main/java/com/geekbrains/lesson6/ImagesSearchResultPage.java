@@ -1,5 +1,6 @@
 package com.geekbrains.lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,7 @@ public class ImagesSearchResultPage extends BaseView {
     @FindBy(xpath = "(//a[@class='ViewerTags-Item']) [1]")
     public WebElement firstImageTag;
 
+    @Step("Поиск картинки по тегу")
     public void selectImageTag() {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(FIRST_IMAGE_XPATH_LOCATOR)));
         firstImageElement.click();
