@@ -12,13 +12,14 @@ public class ImagesSearchResultPage extends BaseView {
         super(driver);
     }
     private final static String FIRST_IMAGE_XPATH_LOCATOR = "(//img[contains(@class, 'serp-item')]) [1]";
+    private final static String FIRST_IMAGE_TAG_XPATH_LOCATOR = "(//a[@class='ViewerTags-Item']) [1]";
     @FindBy(xpath = FIRST_IMAGE_XPATH_LOCATOR)
     public WebElement firstImageElement;
 
     @FindBy(xpath = "//img[@class='MMImage-Origin']")
     public WebElement originImageElement;
 
-    @FindBy(xpath = "(//a[@class='ViewerTags-Item']) [1]")
+    @FindBy(xpath = FIRST_IMAGE_TAG_XPATH_LOCATOR)
     public WebElement firstImageTag;
 
     @Step("Поиск картинки по тегу")
@@ -26,8 +27,9 @@ public class ImagesSearchResultPage extends BaseView {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(FIRST_IMAGE_XPATH_LOCATOR)));
         firstImageElement.click();
         originImageElement.click();
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated
+                       (By.xpath(FIRST_IMAGE_TAG_XPATH_LOCATOR)));
         firstImageTag.click();
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(FIRST_IMAGE_XPATH_LOCATOR)));
     }
 
 }
