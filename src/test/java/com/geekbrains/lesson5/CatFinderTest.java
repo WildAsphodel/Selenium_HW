@@ -44,10 +44,8 @@ public class CatFinderTest {
                 .openImagesPage()
                 .search("котики")
                 .selectImageTag();
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated
-                (By.xpath("//div[contains(@class, 'spin2')]")));
-        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated
-                (By.xpath("//div[contains(@class, 'spin2_js')]"))));
+        webDriverWait.until(ExpectedConditions.invisibilityOf
+                (driver.findElement(By.xpath("//div[contains(@class,'fade')]"))));
         Assertions.assertTrue(new ImagesSearchResultPage(driver).firstImageElement.isDisplayed());
     }
 
